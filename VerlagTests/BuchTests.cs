@@ -96,7 +96,7 @@ namespace VerlagTests
 		[DataRow("")]
 		[DataRow("#")]
 		[DataRow(";")]
-		[DataRow("§")]
+		[DataRow("ï¿½")]
 		[DataRow("%")]
 		[DataRow(null)]
 		[ExpectedException(typeof(ArgumentException))]
