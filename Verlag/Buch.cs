@@ -7,32 +7,41 @@ using System.Xml.Linq;
 
 namespace Verlag
 {
-    internal class Buch
+    public class Buch
     {
-        private string Autor;
-        private string Titel;
-        private int Auflage;
+        private string autor;
+        private string titel;
+        private int auflage;
 
-        public Buch(string autor, string titel, int auflage)
+        public Buch(string autor, string titel, int auflage) : this(autor,titel)
         {
-            this.Autor = autor;
-            this.Titel = titel;
-            this.Auflage = auflage;
+            this.autor = autor;
+            this.titel = titel;
+            this.auflage = auflage;
         }
 
-        public string autor   // property
+        public Buch(string autor, string titel)
         {
-            get { return autor; }   // get method
+            this.autor = autor;
+            this.titel = titel;
         }
 
-        public string titel   // property
+
+        public string Autor   
         {
-            get { return titel; }   // get method
+            set { this.autor = value; }
+            get { return autor; }   
         }
 
-        public int auflage   // property
+        public string Titel   
         {
-            get { return auflage; }   // get method
+            get { return titel; }   
+        }
+
+        public int Auflage   
+        {
+            set { this.Auflage = value; }
+            get { return auflage; }  
         }
 
 
