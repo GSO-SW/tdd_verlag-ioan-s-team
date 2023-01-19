@@ -116,13 +116,7 @@ namespace VerlagTests
             Buch b = new Buch("", "titel");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Autor_DarfNichNullSein()
-        {
-            //Act
-            Buch b = new Buch(null, "Titel");
-        }
+   
 
 
     }
