@@ -13,10 +13,10 @@ namespace VerlagTests
     {
 
         [TestMethod]
-        public void TestValidISBN13TestValidISBN13()
+        public void TestValidISBN13()
         {
 
-            //Arrange
+            //Arranges
             string input = "978-3770436163";
             Buch b = new Buch("Walter Isaacson", "Steve Jobs");
 
@@ -26,6 +26,39 @@ namespace VerlagTests
             //Assert
             Assert.AreEqual(input, b.ISBN);
         }
+
+        [TestMethod]
+        //public void TestPrüfzifferISBN()
+        //{
+
+        //    //Arranges
+        //    string ohneprüfziffer = "978-377043614";
+        //    string mitprüfziffer = "978-377043614";
+        //    Buch b = new Buch("Walter Isaacson", "Steve Jobs");
+
+        //    //Act
+        //    b.ISBN = ohneprüfziffer;
+
+        //    //Assert
+        //    Assert.AreEqual(mitprüfziffer, b.ISBN);
+        //}
+
+        public void TestISBN13NachISBN10()
+        {
+
+            //Arranges
+            string ISBN13 = "9783770436064";
+            string ISBN10 = "3770436067";
+            Buch b = new Buch("Walter Isaacson", "Steve Jobs");
+
+            //Act
+            b.ISBN = ISBN13;
+
+            //Assert
+            Assert.AreEqual(ISBN10, b.ISBN10);
+            
+        }
+
 
     }
 }
