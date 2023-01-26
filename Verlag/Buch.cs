@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Net;
 
 namespace Verlag
 {
@@ -12,38 +8,85 @@ namespace Verlag
         private string autor;
         private string titel;
         private int auflage;
+        private string isbn;
 
-        public Buch(string autor, string titel, int auflage) : this(autor,titel)
+
+        public Buch(string autor, string titel, int auflage) : this(autor, titel)
         {
-            this.autor = autor;
-            this.titel = titel;
-            this.auflage = auflage;
+            if (auflage < 1)
+            {
+                throw new ArgumentOutOfRangeException("Auflagenummer zu klein");
+            }
+            else
+            {
+                this.auflage = auflage;
+            }
         }
 
         public Buch(string autor, string titel)
         {
-            this.autor = autor;
+            if (autor == "" || autor == "#" || autor == ";" || autor == "�" || autor == "%" || autor == null)
+            {
+                throw new ArgumentException("Name des Authors ist unzulässig");
+            }
+            else
+            {
+                this.autor = autor;
+            }
             this.titel = titel;
+            auflage = 1;
         }
 
-
-        public string Autor   
+        public string Autor
         {
-            set { this.autor = value; }
-            get { return autor; }   
+            get
+            {
+                return autor;
+            }
+            set
+            {
+                autor = value;
+            }
         }
 
-        public string Titel   
+        public string ISBN
         {
-            get { return titel; }   
+            get
+            {
+                return isbn;
+            }
+            set
+            {
+                isbn = value;
+            }
         }
 
-        public int Auflage   
+        public string Titel
         {
-            set { this.Auflage = value; }
-            get { return auflage; }  
+            get
+            {
+                return titel;
+            }
         }
 
-
+        public int Auflage
+        {
+            get
+            {
+                return auflage;
+            }
+            set
+            {
+                if (value < 1)
+                {
+                    throw new ArgumentOutOfRangeException("Auflagenummer zu klein");
+                }
+                else
+                {
+                    auflage = value;
+                }
+            }
+        }
     }
 }
+
