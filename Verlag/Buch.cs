@@ -11,7 +11,7 @@ namespace Verlag
         private string isbn;
 
 
-        public Buch(string autor, string titel, int auflage):this(autor,titel)
+        public Buch(string autor, string titel, int auflage) : this(autor, titel)
         {
             if (auflage < 1)
             {
@@ -78,9 +78,49 @@ namespace Verlag
 
         public string ISBN
         {
-            get { return isbn; }
-            set { isbn = value; }
+            get
+            {
+                return isbn;
+            }
+            set
+            {
+                if (value.Length == 13)
+                {
+                    int rechnungsErgebniss = 0;
+                    for (int i = 0; i < 13; i++)
+                    {
+                        if (i == 0 || i == 2 || i == 5 || i == 7 || i == 9 || i == 11)
+                        {
+                            rechnungsErgebniss += Convert.ToInt32(value[i].ToString());
+                        }
+                        else if (i == 1 || i > 3)
+                        {
+                            rechnungsErgebniss += Convert.ToInt32(value[i].ToString()) * 3;
+                        }
+                    }
+                    int pruefziffer = 10 - (rechnungsErgebniss % 10);
+                    isbn = value + pruefziffer;
+                } else
+                {
+                    isbn = value;
+                }
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
