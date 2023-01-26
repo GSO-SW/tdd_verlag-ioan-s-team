@@ -8,6 +8,7 @@ namespace Verlag
         private string autor;
         private string titel;
         private int auflage;
+        private string isbn;
 
 
         public Buch(string autor, string titel, int auflage):this(autor,titel)
@@ -73,6 +74,12 @@ namespace Verlag
                     auflage = value;
                 }
             }
+        }
+
+        public string ISBN
+        {
+            get { return isbn; }
+            set { isbn = value; }
         }
     }
 }

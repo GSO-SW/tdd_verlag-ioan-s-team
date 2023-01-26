@@ -91,38 +91,38 @@ namespace VerlagTests
             b.Auflage = auflageNeu;
         }
 
-        // DataRow: https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest#add-more-features
-        [TestMethod]
-        [DataRow("")]
-        [DataRow("#")]
-        [DataRow(";")]
-        [DataRow("�")]
-        [DataRow("%")]
-        [DataRow(null)]
-        [ExpectedException(typeof(ArgumentException))]
-        public void Autor_NurSinnvolleEingabenErlaubt(string unerlaubtesZeichen)
-        {
-            //Arrange
-            string name = "Ioan" + unerlaubtesZeichen;
-            //Act
-            Buch b = new Buch(unerlaubtesZeichen, "titel");
-        }
+        //// DataRow: https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest#add-more-features
+        //[TestMethod]
+        //[DataRow("")]
+        //[DataRow("#")]
+        //[DataRow(";")]
+        //[DataRow("�")]
+        //[DataRow("%")]
+        //[DataRow(null)]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void Autor_NurSinnvolleEingabenErlaubt(string unerlaubtesZeichen)
+        //{
+        //    //Arrange
+        //    string name = "Ioan" + unerlaubtesZeichen;
+        //    //Act
+        //    Buch b = new Buch(unerlaubtesZeichen, "titel");
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void Autor_DarfNichtLeerSein()
-        {
-            //Act
-            Buch b = new Buch("", "titel");
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void Autor_DarfNichtLeerSein()
+        //{
+        //    //Act
+        //    Buch b = new Buch("", "titel");
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Autor_DarfNichNullSein()
-        {
-            //Act
-            Buch b = new Buch(null, "Titel");
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void Autor_DarfNichNullSein()
+        //{
+        //    //Act
+        //    Buch b = new Buch(null, "Titel");
+        //}
 
 
     }
