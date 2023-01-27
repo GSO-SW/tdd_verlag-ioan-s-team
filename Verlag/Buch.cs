@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics.Metrics;
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace Verlag
 {
@@ -11,6 +13,37 @@ namespace Verlag
         private string isbn;
         private string isbn10;
 
+
+        public void PrüfzifferISBN (string ISBN)
+        {
+
+            int gerade = 0;
+            int ungrade = 0;
+            string cache = "";
+
+            if (isbn.Length == 12)
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        gerade += Convert.ToInt32(isbn[i].ToString());
+                    }
+                    else
+                    {
+                        ungrade += Convert.ToInt32(isbn[i].ToString());
+                    }
+
+                }
+
+                ungrade *= 3;
+                cache = Convert.ToString(gerade + ungrade);
+                cache = Convert.ToString(cache[cache.Length - 1]);
+                cache = Convert.ToString(10 - Convert.ToInt32(cache));
+                isbn = $"{isbn}{cache}";
+                Console.WriteLine("isbn: " + isbn);
+            }
+        }
         
         public string ConvertISBN13to10(string ISBN13)
         {
@@ -96,6 +129,7 @@ namespace Verlag
             {
                 isbn = value;
                 ConvertISBN13to10(isbn);
+                PrüfzifferISBN(isbn);
             }
         }
 
