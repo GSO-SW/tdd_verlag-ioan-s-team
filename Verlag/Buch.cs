@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Verlag
 {
@@ -107,22 +108,29 @@ namespace Verlag
             }
         }
 
-        
+        public string ISBN10()
+        {
+            string isbn10OhnePruefZiffer = "";
+            string isbn10 = "";
+            int isbn10PruefzifferOhneModulo = 0;
+            int isbn10Pruefziffer = 0;
+            for (int i = 4; i < 13; i++)
+            {
+                isbn10OhnePruefZiffer += isbn[i];
+            }
+
+            for (int i = 0; i <9; i++)
+            {
+                isbn10PruefzifferOhneModulo += Convert.ToInt32(isbn10OhnePruefZiffer[i].ToString()) * (i + 1);
+            }
+
+            isbn10Pruefziffer = isbn10PruefzifferOhneModulo % 11;
+
+            isbn10 = isbn10OhnePruefZiffer + isbn10Pruefziffer.ToString();
+            return isbn10;
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
