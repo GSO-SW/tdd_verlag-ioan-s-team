@@ -29,6 +29,18 @@ namespace VerlagTests
 			//Assert
 			Assert.AreEqual("978-3770436163", b.ISBN);
         }
+
+		[TestMethod]
+		public void ISBN_FromISBN13ToISBN10()
+		{
+			//Arrange
+			Buch b = new Buch("Ioan Iancu", "title");
+			b.ISBN = "978-3770436064";
+			//Act
+			string ISBN10 = b.ISBN10();
+			//Assert
+			Assert.AreEqual("3770436067", ISBN10);
+        }
 	}
 }
 
