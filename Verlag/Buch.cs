@@ -9,7 +9,7 @@ namespace Verlag
         private string autor;
         private string titel;
         private int auflage;
-        private string isbn;
+        private ISBN isbn;
 
 
         public Buch(string autor, string titel, int auflage) : this(autor, titel)
