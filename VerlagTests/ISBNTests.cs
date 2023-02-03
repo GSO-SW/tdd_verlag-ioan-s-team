@@ -13,9 +13,9 @@ namespace VerlagTests
 			//Arrange
 			ISBN b = new ISBN();
 			//Act
-			b.isbn = "978-3770436163";
+			b.ISBN13 = "978-3770436163";
 			//Assert
-			Assert.AreEqual("978-3770436163", b.isbn);
+			Assert.AreEqual("978-3770436163", b.ISBN13);
         }
 
 		[TestMethod]
@@ -24,10 +24,10 @@ namespace VerlagTests
 			//Arrange
 			ISBN b = new ISBN();
 			//Act
-			b.isbn = "978-377043616";
+			b.ISBN13 = "978-377043616";
 			//b.ISBN = "978-381582086";
 			//Assert
-			Assert.AreEqual("978-3770436163", b.isbn);
+			Assert.AreEqual("978-3770436163", b.ISBN13);
         }
 
 		[TestMethod]
@@ -35,7 +35,7 @@ namespace VerlagTests
 		{
 			//Arrange
 			ISBN b = new ISBN();
-			b.isbn = "978-3770436064";
+			b.ISBN13 = "978-3770436064";
 			//Act
 			string ISBN10 = b.ISBN10();
 			//Assert

@@ -124,6 +124,16 @@ namespace VerlagTests
         //    Buch b = new Buch(null, "Titel");
         //}
 
+        [TestMethod]
+        public void Buch_KannISBNVerwalten()
+        {
+            //Arrange
+            Buch b = new Buch("Ioan", "titel");
+            //Act
+            b.ISBN = "978-3770436163";
+            //Assert
+            Assert.AreEqual("978-3770436163", b.ISBN);
+        }
 
     }
 }

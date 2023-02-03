@@ -9,7 +9,7 @@ namespace Verlag
         private string autor;
         private string titel;
         private int auflage;
-        private ISBN isbn;
+        private ISBN isbn = new ISBN();
 
 
         public Buch(string autor, string titel, int auflage) : this(autor, titel)
@@ -77,6 +77,17 @@ namespace Verlag
             }
         }
 
+        public string ISBN
+        {
+            get
+            {
+                return isbn.ISBN13;
+            }
+            set
+            {
+                isbn.ISBN13 = value;
+            }
+        }
         
     }
 }

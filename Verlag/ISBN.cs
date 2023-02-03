@@ -12,7 +12,7 @@ namespace Verlag
 		}
 
 
-        public string isbn
+        public string ISBN13
         {
             get
             {
