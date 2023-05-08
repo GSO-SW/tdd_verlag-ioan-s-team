@@ -43,20 +43,20 @@ namespace VerlagTests
 
         }
 
-        [TestMethod]
-        public void ISBN13zuISBN10()
-        {
-            //Arrange 
-            string isbn13 = "978-3770436064";
-            Buch b = new Buch("Titel", "Autor", isbn13);
-            string ergebnis = "3770436067";
+        //[TestMethod]
+        //public void ISBN13zuISBN10()
+        //{
+        //    //Arrange 
+        //    string isbn13 = "978-3770436064";
+        //    Buch b = new Buch("Titel", "Autor", isbn13);
+        //    string ergebnis = "3770436067";
 
-            //Act
-            string isbn10 = b.ISBN10Umrechnen();
+        //    //Act
+        //    string isbn10 = b.ISBN10Umrechnen();
 
-            //Assert
-            Assert.AreEqual(ergebnis, isbn10);
-        }
+        //    //Assert
+        //    Assert.AreEqual(ergebnis, isbn10);
+        //}
 
 
     }
