@@ -91,6 +91,7 @@ namespace VerlagTests
             b.Auflage = auflageNeu;
         }
 
+<<<<<<< HEAD
         [TestMethod]
         [DataRow("")]
         [DataRow("#")]
@@ -104,5 +105,51 @@ namespace VerlagTests
             //Act
             Buch b = new Buch(unerlaubtesZeichen, "titel");
         }
+=======
+        //// DataRow: https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest#add-more-features
+        //[TestMethod]
+        //[DataRow("")]
+        //[DataRow("#")]
+        //[DataRow(";")]
+        //[DataRow("�")]
+        //[DataRow("%")]
+        //[DataRow(null)]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void Autor_NurSinnvolleEingabenErlaubt(string unerlaubtesZeichen)
+        //{
+        //    //Arrange
+        //    string name = "Ioan" + unerlaubtesZeichen;
+        //    //Act
+        //    Buch b = new Buch(unerlaubtesZeichen, "titel");
+        //}
+
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void Autor_DarfNichtLeerSein()
+        //{
+        //    //Act
+        //    Buch b = new Buch("", "titel");
+        //}
+
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentNullException))]
+        //public void Autor_DarfNichNullSein()
+        //{
+        //    //Act
+        //    Buch b = new Buch(null, "Titel");
+        //}
+
+        [TestMethod]
+        public void Buch_KannISBNVerwalten()
+        {
+            //Arrange
+            Buch b = new Buch("Ioan", "titel");
+            //Act
+            b.ISBN = "978-3770436163";
+            //Assert
+            Assert.AreEqual("978-3770436163", b.ISBN);
+        }
+
+>>>>>>> 8ff97c2416f45ab3c4fb7a93f7166ae999c97209
     }
 }
